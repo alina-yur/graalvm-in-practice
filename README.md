@@ -91,9 +91,8 @@
 
 To do 
 
-[] rebuild container images
-[] rebuild petclnici with various linking options
-[] rebuild petclinic
-[] petclinic LCOV
-[] embedding demo
-[] obfuscation demo - SecretClass
+[] rebuild container images <br>
+[] rebuild petclinic <br>
+[] petclinic LCOV <br>
+[] embedding demo <br>
+[] obfuscation demo - SecretClass <br>
