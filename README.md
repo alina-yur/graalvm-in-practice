@@ -1,8 +1,8 @@
 # GraalVM in Practice
 
 * GraalVM components 🐰
-* Migrating an app to GraalVM 🤖
-  * 👩‍💻 use Native Build Tools 🛠️
+* Migrating an app to GraalVM 🤖 👩‍💻 **PC**
+  * 👩‍💻 use Native Build Tools 🛠️ 👩‍💻 **PC**
   * 👩‍💻 basic performance measurements with `time` 📈
 * Reflection and Using libraries 📚
   * Basic Use: configuration not needed or automatically provided
@@ -12,17 +12,18 @@
     * Recommended: use `-H:Preserve`
     * Recommended: Use Dynamic Access Report
   * Advanced use: programatic or semi-automatic configuration registration
-    * You can programmatically generate configuration via framework annotations, such as `@ReflectiveAccess` ([Micronaut](https://guides.micronaut.io/latest/micronaut-graalvm-reflection-maven-java.html))
+    * You can programmatically generate configuration via framework annotations, such as `@ReflectiveAccess` ([Micronaut](https://guides.micronaut.io/latest/micronaut-graalvm-reflection-maven-java.html)) 👩‍💻 **MT**
     * You can use Native Image's Tracing Agent (`java -agentlib:native-image-agent -jar ./target/demo.jar`)
     *  You can provide configuration manually via json
   * Crema
 * Performance optimizations 🚀
   * [Overview of compiler optimization levels](https://github.com/alina-yur/native-spring-boot?tab=readme-ov-file#optimization-levels-in-native-image)
-  * 👩‍💻 PGO
+  * 👩‍💻 PGO 👩‍💻 **PC**
     * ML-enabled PGO
     * You get [LCOV](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/PGO/LCOV/) info as a side product of PGO
-  * G1 GC
+  * G1 GC 👩‍💻 **PC**
   * `-march=native`
+  * Flamegraph 👩‍💻 **PC**
   * Memory management (`xmx`)
   * Demo: [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
 * Testing 👨‍🔬
@@ -30,7 +31,7 @@
   * Fine-grained JUnit support for flexibility: `@EnabledInNativeImage`, `@DisabledInNativeImage`
   * Look at framework modules, such as Micronaut Test Resources or Quarkus Dev Services
 * Deployment 📦
-  * 👩‍💻 Packaging and linking options
+  * 👩‍💻 Packaging and linking options 👩‍💻 **NSB**
     * JDK 
     * JDK | Distroless
     * JDK | JLink
