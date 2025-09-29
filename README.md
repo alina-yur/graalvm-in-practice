@@ -21,9 +21,9 @@
   * 👩‍💻 PGO 👩‍💻 **PC**
     * ML-enabled PGO
     * You get [LCOV](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/PGO/LCOV/) info as a side product of PGO
-  * G1 GC 👩‍💻 **PC**
+  * G1 GC 👩‍💻
   * `-march=native`
-  * Flamegraph 👩‍💻 **PC**
+  * Flamegraph 👩‍💻
   * Memory management (`xmx`)
   * Demo: [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
 * Testing 👨‍🔬
@@ -70,19 +70,18 @@
   * 👩‍💻 `jvmstat` <!-- visualvm --jdkhome /Users/ayurenko/.sdkman/candidates/java/24-graal --> 
   * JFR, JMX, `jcmd`
   * `perf stat <./target/demo>`
-  * LCOV?
 * Tooling 🔮
   * 👩‍💻 Build reports
 * GraalVM 25 🐰
   * [`-H:Preserve=all`](https://github.com/oracle/graal/pull/10180)
-  * Refined ML profile inference for even higher performanvce out of the box, on by default in `-03`
+  * Refined ML profile inference for even higher performance out of the box, on by default in `-03`
    * Enable in `-O2`: `-H:+MLProfileInferenceUseGNNModel`
   * Use ML for smaller executables: `-H:+MLCallCountProfileInference`
-  * Advanced obfuscation and security by default
-  * Fast PIE with `-H:+RelativeCodePointers`
+  * Advanced obfuscation and security by default **SC**
+  * Fast PIE with `-H:+RelativeCodePointers` **NSB?**
   * FFM and Vector API support updates
   * DX updates 🛠️
-  * Embedding Python (Pygal charts) (or airline demo with qr code)
+  * Embedding Python **AIRLINE**
 * Future work 👩‍🔬
  * [Project Crema](https://github.com/orgs/oracle/projects/6?pane=issue&itemId=113766307&issue=oracle%7Cgraal%7C11327)
  * [Native Image Layers](https://github.com/oracle/graal/issues/7626)
