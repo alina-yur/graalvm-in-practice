@@ -91,6 +91,7 @@
 
 To do 
 
+<!-- ssh -o ServerAliveInterval=60 opc@alina-oracledeveloper-->
 [] rebuild container images <br>
 [] rebuild petclinic <br>
 [] petclinic LCOV <br>
