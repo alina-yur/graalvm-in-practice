@@ -100,3 +100,4 @@ To do
 [] petclinic LCOV <br>
 [] embedding demo <br>
 [] obfuscation demo - SecretClass <br>
+[] build optimized petclinic locally <br>
