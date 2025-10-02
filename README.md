@@ -76,9 +76,10 @@
   * DX updates 🛠️
   * Embedding Python **AIRLINE**
 * Future work 👩‍🔬
- * [Project Crema](https://github.com/orgs/oracle/projects/6?pane=issue&itemId=113766307&issue=oracle%7Cgraal%7C11327)
  * [Native Image Layers](https://github.com/oracle/graal/issues/7626)
- * Web Image (javac)
+ * [GenShenandoah GC in Native Image](https://github.com/orgs/oracle/projects/6/views/1?pane=issue&itemId=130712659&issue=oracle%7Cgraal%7C12237)
+ * [Web Image (javac)](https://graalvm.github.io/graalvm-demos/native-image/wasm-javac/)
+ * [Project Crema](https://github.com/orgs/oracle/projects/6?pane=issue&itemId=113766307&issue=oracle%7Cgraal%7C11327)
  
 
 
