@@ -20,7 +20,7 @@
   * [Overview of compiler optimization levels](https://github.com/alina-yur/native-spring-boot?tab=readme-ov-file#optimization-levels-in-native-image)
   * 👩‍💻 PGO 👩‍💻 **PC**
     * ML-enabled PGO
-    * You can use LCOV tooling to [visualize](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/PGO/LCOV/) PGO profiles"
+    * You can use LCOV tooling to [visualize](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/PGO/LCOV/) PGO profiles
      * Build with `--pgo-instrument -H:+ProfilingLCOV`
      * Run with `./target/spring-petclinic-instrumented-lcov`
      * Visualize in the tooling of your choice, e.g. 
@@ -71,7 +71,7 @@
    * Enable in `-O2`: `-H:+MLProfileInferenceUseGNNModel`
   * Use ML for smaller executables: `-H:+MLCallCountProfileInference`
   * Advanced obfuscation and security by default **SC**
-  * Fast PIE with `-H:+RelativeCodePointers` **NSB?**
+  * Fast PIE with `-H:+RelativeCodePointers` **NSB**
   * FFM and Vector API support updates
   * DX updates 🛠️
   * Embedding Python **AIRLINE**
