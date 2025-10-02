@@ -43,16 +43,6 @@
       * Mostly-static: statically links everything except the C standard library (libc). Fewer runtime dependencies, smaller than fully static, but still requires libc and not as portable as fully static.
       * Fully static: fully self-contained, runs on scratch, highly portable. Larger binaries, requires recompiling for both code & patch updates.
       *  Demo: [native-spring-boot](https://github.com/alina-yur/native-spring-boot) `docker images | grep "native-spring"`
-       * You can significantly reduce the size by going with Native Image:
-          ```shell
-          ➜ docker images | grep "native"                                                                
-          localhost/native-spring-boot-static-size            latest         ... ...    58.5 MB
-          localhost/native-spring-boot-static-scratch         latest         ... ...    84.4 MB
-          localhost/native-spring-boot-native                 latest         ... ...    125 MB
-          localhost/native-spring-boot-jdk-jlink              latest         ... ...    126 MB
-          localhost/native-spring-boot-jdk-distroless         latest         ... ...    218 MB
-          localhost/native-spring-boot-jdk                    latest         ... ...    480 MB
-          ```
   * Recipe for the smallest container images: Native | Static | From scratch | Optimize for size
   * You can scan the images for vulnerabilities & packages 🛡️
   * Buildpacks
