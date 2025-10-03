@@ -49,24 +49,24 @@
   * GitHub actions
 * Security 🛡️
   *  Security by design and by default
+  * SBOM options: `--enable-sbom=[embed|export|classpath|class-level]`
   * 👩‍💻 Vulnerability Scanning
     * `grype`: `native-image-inspect --sbom ./target/demo-sbom | grype -v`
     * `native-image-inspect --sbom ./target/demo-sbom > output.json`
   * 👩‍💻 SBOM support: exposing in Spring Actuator
-  * 👩‍💻 SBOM support in Micronaut
   * Demo: [native-spring-boot-sbom](https://github.com/alina-yur/native-spring-boot-sbom)
   * Adavanced obfuscation: `-H:AdvancedObfuscation=`
 
 * Monitoring 📈
-  * 👩‍💻 Micrometer
-    * (Tempo -> service graph)
-  * 👩‍💻 `jvmstat` <!-- visualvm --jdkhome /Users/ayurenko/.sdkman/candidates/java/24-graal --> 
+  * Micrometer, for example [Micronaut Micrometer](https://micronaut-projects.github.io/micronaut-micrometer/latest/guide/)
+  * `jvmstat`
   * JFR, JMX, `jcmd`
   * `perf stat <./target/demo>`
 * Tooling 🔮
   * 👩‍💻 Build reports
 * GraalVM 25 🐰
   * [`-H:Preserve=all`](https://github.com/oracle/graal/pull/10180)
+    * Taking it one step further: use the new tracing agent to produce precise configuration with `-XX:TraceMetadata=path=`
   * Refined ML profile inference for even higher performance out of the box, on by default in `-03`
    * Enable in `-O2`: `-H:+MLProfileInferenceUseGNNModel`
   * Use ML for smaller executables: `-H:+MLCallCountProfileInference`
