@@ -19,11 +19,11 @@
 * Performance optimizations 🚀
   * [Overview of compiler optimization levels](https://github.com/alina-yur/native-spring-boot?tab=readme-ov-file#optimization-levels-in-native-image)
   * 👩‍💻 PGO 👩‍💻 **PC**
-    * ML-enabled PGO
+    * ML-enabled PGO (in `-O3`)
     * You can use LCOV tooling to [visualize](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/PGO/LCOV/) PGO profiles
      * Build with `--pgo-instrument -H:+ProfilingLCOV`
      * Run with `./target/spring-petclinic-instrumented-lcov`
-     * Visualize in the tooling of your choice, e.g. 
+     * Visualize in the tooling of your choice, e.g. `genhtml`
   * G1 GC 👩‍💻
   * `-march=native`
   * Flamegraph 👩‍💻
@@ -32,13 +32,10 @@
 * Testing 👨‍🔬
   * You can your tests in the native mode
   * Fine-grained JUnit support for flexibility: `@EnabledInNativeImage`, `@DisabledInNativeImage`
+  * Specifically test in your CI/CD and when adding new dependencies
   * Look at framework modules, such as Micronaut Test Resources or Quarkus Dev Services
 * Deployment 📦
   * 👩‍💻 Packaging and linking options 👩‍💻 **NSB**
-    * JDK 
-    * JDK | Distroless
-    * JDK | JLink
-    * Native
       * Dynamic linking: smallest binaries, fastest builds, no special toolchain. Needs shared libs provided by the excution platform.
       * Mostly-static: statically links everything except the C standard library (libc). Fewer runtime dependencies, smaller than fully static, but still requires libc and not as portable as fully static.
       * Fully static: fully self-contained, runs on scratch, highly portable. Larger binaries, requires recompiling for both code & patch updates.
@@ -47,39 +44,39 @@
   * You can scan the images for vulnerabilities & packages 🛡️
   * Buildpacks
   * GitHub actions
-* Security 🛡️
-  *  Security by design and by default
-  * SBOM options: `--enable-sbom=[embed|export|classpath|class-level]`
-  * 👩‍💻 Vulnerability Scanning
-    * `grype`: `native-image-inspect --sbom ./target/demo-sbom | grype -v`
-    * `native-image-inspect --sbom ./target/demo-sbom > output.json`
-  * 👩‍💻 SBOM support: exposing in Spring Actuator
-  * Demo: [native-spring-boot-sbom](https://github.com/alina-yur/native-spring-boot-sbom)
-  * Adavanced obfuscation: `-H:AdvancedObfuscation=`
 
 * Monitoring 📈
   * Micrometer, for example [Micronaut Micrometer](https://micronaut-projects.github.io/micronaut-micrometer/latest/guide/)
   * `jvmstat`
   * JFR, JMX, `jcmd`
   * `perf stat <./target/demo>`
-* Tooling 🔮
-  * 👩‍💻 Build reports
+
 * GraalVM 25 🐰
-  * [`-H:Preserve=all`](https://github.com/oracle/graal/pull/10180)
-    * Taking it one step further: use the new tracing agent to produce precise configuration with `-XX:TraceMetadata=path=`
+
+    * Zero configuration migration with [`-H:Preserve=all`](https://github.com/oracle/graal/pull/10180)
+     * Taking it one step further: use the new tracing agent to produce precise configuration with `-XX:TraceMetadata=path=`
+  * Security 🛡️
+    *  Security by design and by default
+      * SBOM options: `--enable-sbom=[embed|export|classpath|class-level]`
+        * 👩‍💻 Vulnerability Scanning
+        * `grype`: `native-image-inspect --sbom ./target/demo-sbom | grype -v`
+      * 👩‍💻 SBOM support: exposing in Spring Actuator
+      * Demo: [native-spring-boot-sbom](https://github.com/alina-yur/native-spring-boot-sbom)
+    * Adavanced obfuscation: `-H:AdvancedObfuscation=` **SC**
+  * Tooling: Build reports 🛠️
   * Refined ML profile inference for even higher performance out of the box, on by default in `-03`
-   * Enable in `-O2`: `-H:+MLProfileInferenceUseGNNModel`
+    * Enable in `-O2`: `-H:+MLProfileInferenceUseGNNModel`
   * Use ML for smaller executables: `-H:+MLCallCountProfileInference`
-  * Advanced obfuscation and security by default **SC**
   * Fast PIE with `-H:+RelativeCodePointers` **NSB**
   * FFM and Vector API support updates
   * DX updates 🛠️
   * Embedding Python **AIRLINE**
+
 * Future work 👩‍🔬
- * [Native Image Layers](https://github.com/oracle/graal/issues/7626)
- * [GenShenandoah GC in Native Image](https://github.com/orgs/oracle/projects/6/views/1?pane=issue&itemId=130712659&issue=oracle%7Cgraal%7C12237)
- * [Web Image (javac)](https://graalvm.github.io/graalvm-demos/native-image/wasm-javac/)
- * [Project Crema](https://github.com/orgs/oracle/projects/6?pane=issue&itemId=113766307&issue=oracle%7Cgraal%7C11327)
+    * [Native Image Layers](https://github.com/oracle/graal/issues/7626)
+    * [GenShenandoah GC in Native Image](https://github.com/orgs/oracle/projects/6/views/1?pane=issue&itemId=130712659&issue=oracle%7Cgraal%7C12237)
+    * [Web Image (javac)](https://graalvm.github.io/graalvm-demos/native-image/wasm-javac/)
+    * [Project Crema](https://github.com/orgs/oracle/projects/6?pane=issue&itemId=113766307&issue=oracle%7Cgraal%7C11327)
  
 
 
