@@ -20,15 +20,17 @@
   * [Overview of compiler optimization levels](https://github.com/alina-yur/native-spring-boot?tab=readme-ov-file#optimization-levels-in-native-image)
   * 👩‍💻 PGO 👩‍💻 **PC**
     * ML-enabled PGO (in `-O3`)
-    * You can use LCOV tooling to [visualize](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/PGO/LCOV/) PGO profiles
-     * Build with `--pgo-instrument -H:+ProfilingLCOV`
-     * Run with `./target/spring-petclinic-instrumented-lcov`
-     * Visualize in the tooling of your choice, e.g. `genhtml`
   * G1 GC 👩‍💻
   * `-march=native`
-  * Flamegraph 👩‍💻
   * Memory management (`xmx`)
   * Demo: [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
+  * Advanced level 
+    * Flamegraph in build reports 👩‍💻
+    * You can use LCOV tooling to [visualize](https://www.graalvm.org/latest/reference-manual/native-image/optimizations-and-performance/PGO/LCOV/) PGO profiles
+      * Build with `--pgo-instrument -H:+ProfilingLCOV`
+      * Run with `./target/spring-petclinic-instrumented-lcov`
+      * Visualize in the tooling of your choice, e.g. `genhtml`
+    *   * `perf stat `./target/spring-petclinic-optimized`
 * Testing 👨‍🔬
   * You can your tests in the native mode
   * Fine-grained JUnit support for flexibility: `@EnabledInNativeImage`, `@DisabledInNativeImage`
@@ -49,11 +51,11 @@
   * Micrometer, for example [Micronaut Micrometer](https://micronaut-projects.github.io/micronaut-micrometer/latest/guide/)
   * `jvmstat`
   * JFR, JMX, `jcmd`
-  * `perf stat <./target/demo>`
+  * Cloud vendors solutions
 
 * GraalVM 25 🐰
 
-    * Zero configuration migration with [`-H:Preserve=all`](https://github.com/oracle/graal/pull/10180)
+    * Zero configuration migration with [`-H:Preserve=all`](https://github.com/oracle/graal/pull/10180) **NMT**
      * Taking it one step further: use the new tracing agent to produce precise configuration with `-XX:TraceMetadata=path=`
   * Security 🛡️
     *  Security by design and by default
@@ -78,14 +80,3 @@
     * [Web Image (javac)](https://graalvm.github.io/graalvm-demos/native-image/wasm-javac/)
     * [Project Crema](https://github.com/orgs/oracle/projects/6?pane=issue&itemId=113766307&issue=oracle%7Cgraal%7C11327)
  
-
-
-To do 
-
-<!-- ssh -o ServerAliveInterval=60 opc@alina-oracledeveloper-->
-[] rebuild container images <br>
-[] rebuild petclinic <br>
-[] petclinic LCOV <br>
-[] embedding demo <br>
-[] obfuscation demo - SecretClass <br>
-[] build optimized petclinic locally <br>
