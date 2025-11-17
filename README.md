@@ -1,11 +1,11 @@
 # GraalVM in Practice
 
-<!-- **Deep Dive: GraalVM in Practice (recording)**
+**Deep Dive: GraalVM in Practice (recording)**
  <div align="center">
   <a href="https://www.youtube.com/watch?v=1J6mbMReOnI">
     <img src="https://i.ytimg.com/vi/1J6mbMReOnI/hq720.jpg">
   </a>
-</div> -->
+</div>
 
 * GraalVM components 🐰
 * Migrating an app to GraalVM 🤖 👩‍💻 [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
